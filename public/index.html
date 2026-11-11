@@ -1,0 +1,52 @@
+<!doctype html>
+
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WebRTC Multiparty Conference</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="container">
+<h1>WebRTC Video Conference</h1>
+<div id="lobby" class="panel">
+<h2>Masuk Video Conference</h2>
+<input type="text" id="userName" placeholder="Nama Peserta" />
+<input type="text" id="roomId" placeholder="Room / Token" />
+<div>
+<button id="createRoom">Buat Room</button>
+<button id="joinRoom">Join Room</button>
+</div>
+</div>
+<div id="meeting" hidden>
+<div class="meeting-header">
+<div>
+<h2>Room: <span id="roomName"></span></h2>
+<p id="participantCount">1 Peserta</p>
+</div>
+<button id="copyRoom">Copy Token</button>
+</div>
+<div id="videoGrid" class="video-grid">
+<div class="video-card local" id="localCard">
+<video id="localVideo" autoplay playsinline muted></video>
+<div class="video-info">
+<span id="localName">Anda</span>
+<span id="localStatus">Camera ON | Mic ON</span>
+</div>
+</div>
+</div>
+<div class="controls">
+<button id="cameraBtn">Matikan Kamera</button>
+<button id="micBtn">Matikan Mikrofon</button>
+<button id="leaveBtn" class="danger">Keluar</button>
+</div>
+</div>
+
+<p id="status" class="status">Belum bergabung.</p>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="main.js"></script>
+<script src="effect.js"></script>
+</body>
+</html>
